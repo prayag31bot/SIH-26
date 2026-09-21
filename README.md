@@ -6,8 +6,6 @@
 
 [Demo Video](#demo-video) · [Architecture Document](docs/architecture.pdf) · [Presentation](docs/presentation.pptx)
 
----
-
 ## Demo Video
 
 [![ACTGuard Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
@@ -20,7 +18,6 @@
      3. Replace every YOUR_VIDEO_ID above with that ID.
      4. Set the video to "Unlisted" or "Public" so the jury can open it. -->
 
----
 
 ## Table of Contents
 1. [Overview](#overview)
@@ -28,19 +25,16 @@
 3. [How It Works](#how-it-works)
 4. [Architecture](#architecture)
 5. [Tech Stack](#tech-stack)
-6. [Project Structure](#project-structure)
 7. [Setup and Installation](#setup-and-installation)
 8. [Usage](#usage)
 9. [Adding a New Vendor (Training Loop)](#adding-a-new-vendor-training-loop)
 10. [Compliance Rules](#compliance-rules)
 11. [Security and Privacy](#security-and-privacy)
 12. [Project Status and Roadmap](#project-status-and-roadmap)
-13. [Limitations](#limitations)
+13. 
 14. [Team](#team)
 15. [References](#references)
-16. [License](#license)
 
----
 
 ## Overview
 
@@ -91,7 +85,6 @@ Findings: Pass/Fail · Severity
 Device PDF + CLI fixes + SHA-256 seal
 ```
 
-Full details are in [`docs/architecture.pdf`](docs/architecture.pdf).
 
 ## Tech Stack
 
@@ -106,29 +99,7 @@ Full details are in [`docs/architecture.pdf`](docs/architecture.pdf).
 | Reports | ReportLab, SHA-256 |
 | Deployment | Docker, Docker Compose |
 
-## Project Structure
 
-`[Adjust to match your repo]`
-
-```
-actguard/
-├── backend/
-│   ├── app/
-│   │   ├── api/              # FastAPI routes
-│   │   ├── parsers/          # Vendor parsers (cisco, junos, panos, fortios)
-│   │   ├── act/              # ACT schema and builder
-│   │   ├── ai/               # Unknown-line tagger, training store
-│   │   ├── engine/           # Rule engine
-│   │   └── reports/          # PDF generation and hash sealing
-│   └── tests/
-├── frontend/                 # React app (upload, dashboard, training GUI)
-├── rules/                    # YAML rule packs (cis/, nist/, stig/, iso27001/)
-├── profiles/                 # Learned vendor profiles (versioned)
-├── samples/                  # Sample configs for testing
-├── docs/                     # Architecture doc, slides
-├── docker-compose.yml
-└── README.md
-```
 
 ## Setup and Installation
 
@@ -186,7 +157,6 @@ npm run dev
 4. Review the **findings** (Pass/Fail, severity, config line, fix).
 5. **Download** the PDF report for each device.
 
-Try it with the files in `samples/`.
 
 ### Example finding
 
@@ -212,8 +182,6 @@ Try it with the files in `samples/`.
 5. The mapping is saved as a **versioned vendor profile** in `profiles/`. No code change or redeployment is needed.
 
 ## Compliance Rules
-
-Rules are data, not code. Each rule is a YAML file that links a check on the ACT to a framework control.
 
 ```yaml
 id: CIS-SSH-001
@@ -244,44 +212,17 @@ To add a standard or update a rule, edit or add a file in `rules/` and restart t
 - Each report is hashed with **SHA-256** and linked to the previous record, so changes are detectable.
 - Access is protected by login and role-based access control.
 
-## Project Status and Roadmap
-
-`[Tick only what is truly working. Judges value honesty.]`
-
-**Phase 1 (MVP)**
-- [ ] Parsers: Cisco IOS, Fortinet FortiOS, Juniper Junos, Palo Alto PAN-OS
-- [ ] ACT schema and builder
-- [ ] CIS-based rule set
-- [ ] Training GUI
-- [ ] Per-device PDF with CLI remediation
-
-**Phase 2**
-- [ ] NIST SP 800-53, DISA STIG and ISO 27001 rule packs
-- [ ] Bulk fleet mode with dashboard
-- [ ] Neo4j cross-device checks
-- [ ] More vendors (Arista, SONiC, MikroTik)
-
-**Phase 3**
-- [ ] Cloud security groups (AWS, Azure, GCP)
-- [ ] Automated config collection (Netmiko / NAPALM)
-- [ ] Configuration drift alerts
-
-## Limitations
-
-- Audits static configuration files. It does not check live device state or traffic behaviour.
-- AI suggestions for unknown commands need admin approval.
-- Rule packs map only the configuration-related controls of each framework.
-- `[Add any other limitation that is true for your build]`
-
 ## Team
 
 **Team Runtime Terror**
 
-| Name | Role |
 |---|---|
-| [Name] | [Role] |
-| [Name] | [Role] |
-| [Name] | [Role] |
+| Prayag shah   | [Role] |
+| aswin rout    | [Role] |
+| hetvi shah    | [Role] |
+| kush patel    | [Role] |
+| yansi valand  | [Role] |
+| lakshya dubey | [Role] |
 
 ## References
 
