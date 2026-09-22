@@ -139,15 +139,14 @@ remediation:
 ## Team
 
 **Team Runtime Terror**
-
-|---|---|
-| Prayag Shah   | [R&D, Documentation] |
-| Aswin Rout    | [Team Leader, Backend] |
-| Hetvi Shah    | [Presentation] |
-| Kush Patel    | [Supporter] |
-| Yansi Valand  | [Frontend] |
-| Lakshya Dubey | [Backend] |
-
+```
+Prayag Shah   | [R&D, Documentation]
+Aswin Rout    | [Team Leader, Backend]
+Hetvi Shah    | [Presentation]
+Kush Patel    | [Supporter]
+Yansi Valand  | [Frontend]
+Lakshya Dubey | [Backend]
+```
 ## References
 
 - [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)
