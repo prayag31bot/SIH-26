@@ -4,20 +4,13 @@
 
 **Smart India Hackathon 2026** | Problem Statement **SIH26155** | Theme: Blockchain & Cybersecurity | Team **Runtime Terror**
 
-[Demo Video](#demo-video) · [Architecture Document](docs/architecture.pdf) · [Presentation](docs/presentation.pptx)
+[Demo Video](#demo-video) · [Presentation](https://docs.google.com/presentation/d/1JxQUsyW2gYUP166sUOouct6gQdTw0NVH06u1ckBVdOc/edit?usp=sharing)
 
 ## Demo Video
 
-[![ACTGuard Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![ACTGuard Demo Video](https://www.youtube.com/watch?si=JRNqOl5N6BS68iZK&v=Z6p6MkNDxqs&feature=youtu.be)
 
-**Watch on YouTube:** https://www.youtube.com/watch?v=YOUR_VIDEO_ID
-
-<!-- HOW TO FILL THIS IN:
-     1. Upload your demo video (max 2 minutes) to YouTube.
-     2. Copy the video ID from the URL: youtube.com/watch?v=<VIDEO_ID>
-     3. Replace every YOUR_VIDEO_ID above with that ID.
-     4. Set the video to "Unlisted" or "Public" so the jury can open it. -->
-
+**Watch on YouTube:** https://www.youtube.com/watch?si=JRNqOl5N6BS68iZK&v=Z6p6MkNDxqs&feature=youtu.be
 
 ## Table of Contents
 1. [Overview](#overview)
@@ -25,15 +18,12 @@
 3. [How It Works](#how-it-works)
 4. [Architecture](#architecture)
 5. [Tech Stack](#tech-stack)
-7. [Setup and Installation](#setup-and-installation)
-8. [Usage](#usage)
-9. [Adding a New Vendor (Training Loop)](#adding-a-new-vendor-training-loop)
-10. [Compliance Rules](#compliance-rules)
-11. [Security and Privacy](#security-and-privacy)
-12. [Project Status and Roadmap](#project-status-and-roadmap)
-13. 
-14. [Team](#team)
-15. [References](#references)
+6. [Usage](#usage)
+7. [Adding a New Vendor (Training Loop)](#adding-a-new-vendor-training-loop)
+8. [Compliance Rules](#compliance-rules)
+9. [Security and Privacy](#security-and-privacy)
+10. [Team](#team)
+11. [References](#references)
 
 
 ## Overview
@@ -92,62 +82,13 @@ Device PDF + CLI fixes + SHA-256 seal
 |---|---|
 | Backend | Python, FastAPI |
 | Parsing | Pyparsing, regex |
-| AI / NLP | spaCy, local model for tagging unseen lines `[fill in the model you use]` |
+| AI / NLP | spaCy, local model for tagging unseen lines |
 | Frontend | React, Tailwind CSS |
 | Graph | Neo4j |
 | Storage | PostgreSQL, YAML rule files |
 | Reports | ReportLab, SHA-256 |
 | Deployment | Docker, Docker Compose |
 
-
-
-## Setup and Installation
-
-### Prerequisites
-- Docker and Docker Compose **or** Python 3.10+ and Node.js 18+
-- At least 4 GB RAM `[adjust]`
-
-### Option 1: Docker (recommended)
-
-```bash
-git clone [your-repo-url]
-cd actguard
-cp .env.example .env        # review the values inside
-docker compose up --build
-```
-
-Then open:
-- Web app: http://localhost:3000
-- API docs: http://localhost:8000/docs
-
-### Option 2: Manual setup
-
-**Backend**
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate          # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
-```
-
-**Frontend**
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-**Databases:** start PostgreSQL and Neo4j (see `docker-compose.yml`) and set their connection details in `.env`.
-
-### Environment variables
-
-| Variable | Description |
-|---|---|
-| `DATABASE_URL` | PostgreSQL connection string |
-| `NEO4J_URI`, `NEO4J_USER`, `NEO4J_PASSWORD` | Neo4j connection |
-| `SECRET_KEY` | Key used for login tokens |
-| `REPORT_DIR` | Where generated PDFs are stored |
 
 ## Usage
 
@@ -157,21 +98,6 @@ npm run dev
 4. Review the **findings** (Pass/Fail, severity, config line, fix).
 5. **Download** the PDF report for each device.
 
-
-### Example finding
-
-```json
-{
-  "device": "edge-fw-01",
-  "vendor": "fortinet",
-  "rule_id": "CIS-SSH-001",
-  "control": "Ensure SSH version 2 is used",
-  "status": "FAIL",
-  "severity": "High",
-  "evidence": "line 214: set ssh-version 1",
-  "remediation": "config system global\n  set admin-ssh-v1 disable\nend"
-}
-```
 
 ## Adding a New Vendor (Training Loop)
 
@@ -203,8 +129,6 @@ remediation:
     end
 ```
 
-To add a standard or update a rule, edit or add a file in `rules/` and restart the service.
-
 ## Security and Privacy
 
 - Configurations are processed **locally**. No external API is called by default.
@@ -217,12 +141,12 @@ To add a standard or update a rule, edit or add a file in `rules/` and restart t
 **Team Runtime Terror**
 
 |---|---|
-| Prayag shah   | [Role] |
-| aswin rout    | [Role] |
-| hetvi shah    | [Role] |
-| kush patel    | [Role] |
-| yansi valand  | [Role] |
-| lakshya dubey | [Role] |
+| Prayag Shah   | [R&D, Documentation] |
+| Aswin Rout    | [Team Leader, Backend] |
+| Hetvi Shah    | [Presentation] |
+| Kush Patel    | [Supporter] |
+| Yansi Valand  | [Frontend] |
+| Lakshya Dubey | [Backend] |
 
 ## References
 
@@ -233,7 +157,3 @@ To add a standard or update a rule, edit or add a file in `rules/` and restart t
 - [ISO/IEC 27001](https://www.iso.org/standard/27001)
 - [Batfish](https://batfish.org/), prior art in vendor-agnostic config analysis
 - LLM agents with a vendor-agnostic intermediate representation for configs: [arXiv 2509.20600](https://arxiv.org/html/2509.20600v1), [arXiv 2501.08760](https://arxiv.org/html/2501.08760v1)
-
-## License
-
-`[Choose one, e.g. MIT or Apache-2.0, and add a LICENSE file]`
